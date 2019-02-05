@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':device')
+}
+
+ext.description = 'API to access device features for the iOS platform'

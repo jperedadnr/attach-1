@@ -1,0 +1,11 @@
+dependencies {
+    implementation project(':runtime-args')
+}
+
+jar {
+    from(zipTree(project(":storage").tasks.jar.archivePath)) {
+        exclude '**/*/impl/Dummy*ServiceImpl.class'
+    }
+}
+
+ext.description = 'API to access runtime arguments features for the desktop platform'

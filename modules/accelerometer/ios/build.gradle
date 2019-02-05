@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':accelerometer')
+    implementation project(':lifecycle/ios')
+}
+
+ext.description = 'API to access accelerometer features for the iOS platform'

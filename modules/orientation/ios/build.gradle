@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':orientation')
+    implementation project(':lifecycle/ios')
+}
+
+ext.description = 'API to access orientation features for the iOS platform'

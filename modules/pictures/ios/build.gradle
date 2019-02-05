@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':pictures')
+}
+
+ext.description = 'API to access pictures features for the iOS platform'

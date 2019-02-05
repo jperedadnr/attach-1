@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':position')
+    implementation project(':lifecycle/ios')
+}
+
+ext.description = 'API to access position features for the iOS platform'

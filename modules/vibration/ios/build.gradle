@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':vibration')
+}
+
+ext.description = 'API to access vibration features for the iOS platform'

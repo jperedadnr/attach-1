@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':in-app-billing')
+}
+
+ext.description = 'API to access in-app billing features for the iOS platform'

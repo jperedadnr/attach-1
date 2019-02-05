@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':video')
+}
+
+ext.description = 'API to access video features for the iOS platform'

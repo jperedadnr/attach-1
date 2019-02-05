@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':dialer')
+}
+
+ext.description = 'API to access dialer features for the iOS platform'

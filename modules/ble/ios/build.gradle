@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':ble')
+}
+
+ext.description = 'API to access bluetooth low energy features for the iOS platform'

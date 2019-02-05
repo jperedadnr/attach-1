@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':push-notifications')
+    implementation project(':runtime-args/ios')
+}
+
+ext.description = 'API to access push notifications features for the iOS platform'

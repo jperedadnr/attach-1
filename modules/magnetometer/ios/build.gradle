@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':magnetometer')
+    implementation project(':lifecycle/ios')
+}
+
+ext.description = 'API to access magnetometer features for the iOS platform'

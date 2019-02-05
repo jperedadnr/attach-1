@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':share')
+}
+
+ext.description = 'API to access sharing features for the iOS platform'

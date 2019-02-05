@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':connectivity')
+}
+
+ext.description = 'API to access connectivity features for the iOS platform'

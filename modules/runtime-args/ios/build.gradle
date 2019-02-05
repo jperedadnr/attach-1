@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':runtime-args')
+}
+
+ext.description = 'API to access runtime arguments features for the iOS platform'

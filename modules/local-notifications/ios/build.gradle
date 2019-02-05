@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':local-notifications')
+}
+
+ext.description = 'API to access local notifications features for the iOS platform'

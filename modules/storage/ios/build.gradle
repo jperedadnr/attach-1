@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':storage')
+}
+
+ext.description = 'API to access storage features for the iOS platform'

@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':browser')
+}
+
+ext.description = 'API to access browser features for the iOS platform'

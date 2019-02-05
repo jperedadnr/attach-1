@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':util:ios')
+    implementation project(':audio-recording')
+}
+
+ext.description = 'API to access audio recording features for the iOS platform'

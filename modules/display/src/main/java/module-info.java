@@ -30,7 +30,7 @@ module com.gluonhq.attach.display {
     requires javafx.graphics;
 
     requires com.gluonhq.attach.util;
-    requires com.gluonhq.attach.plugins.lifecycle;
+    requires com.gluonhq.attach.lifecycle;
 
     exports com.gluonhq.attach.display;
     exports com.gluonhq.attach.display.impl to com.gluonhq.attach.util;

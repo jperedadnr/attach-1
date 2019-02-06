@@ -1,7 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':accelerometer')
-    implementation project(':lifecycle/ios')
+    implementation project(':lifecycle')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access accelerometer features for the iOS platform'

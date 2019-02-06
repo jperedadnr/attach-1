@@ -1,7 +1,11 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':push-notifications')
-    implementation project(':runtime-args/ios')
+    implementation project(':runtime-args')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access push notifications features for the iOS platform'

@@ -1,6 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':connectivity')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access connectivity features for the iOS platform'

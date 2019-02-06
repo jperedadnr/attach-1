@@ -29,9 +29,10 @@ package com.gluonhq.attach.position.impl;
 
 import com.gluonhq.attach.lifecycle.LifecycleEvent;
 import com.gluonhq.attach.lifecycle.LifecycleService;
+import com.gluonhq.attach.position.Parameters;
 import com.gluonhq.attach.position.Position;
 import com.gluonhq.attach.position.PositionService;
-import com.gluonhq.attach.util.Services;
+import com.gluonhq.attach.util.Constants;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -67,7 +68,6 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 public class IOSPositionService implements PositionService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Position");
         initPosition();
     }
@@ -77,12 +77,12 @@ public class IOSPositionService implements PositionService {
     private Parameters parameters;
 
     public IOSPositionService() {
-        if ("true".equals(System.getProperty(Constants.DOWN_DEBUG))) {
+        if ("true".equals(System.getProperty(Constants.ATTACH_DEBUG))) {
             enableDebug();
         }
         position = new ReadOnlyObjectWrapper<>();
 
-        Services.get(LifecycleService.class).ifPresent(l -> {
+        LifecycleService.create().ifPresent(l -> {
             l.addListener(LifecycleEvent.PAUSE, () -> {
                 if (! parameters.isBackgroundModeEnabled()) {
                     stopObserver();

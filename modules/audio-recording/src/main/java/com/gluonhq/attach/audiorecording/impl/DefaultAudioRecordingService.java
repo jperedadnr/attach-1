@@ -27,7 +27,6 @@
  */
 package com.gluonhq.attach.audiorecording.impl;
 
-import com.gluonhq.attach.util.Services;
 import com.gluonhq.attach.audiorecording.AudioRecordingService;
 import com.gluonhq.attach.storage.StorageService;
 import java.io.File;
@@ -112,7 +111,7 @@ public abstract class DefaultAudioRecordingService implements AudioRecordingServ
             audioFolderName = AudioRecordingService.DEFAULT_EXTERNAL_FOLDER;
         }
 
-        audioFolder = Services.get(StorageService.class)
+        audioFolder = StorageService.create()
                 .flatMap(service -> service.getPublicStorage(audioFolderName))
                 .orElseThrow(() -> new RuntimeException("Error accessing Public Storage folder"));
 

@@ -37,7 +37,6 @@ import com.gluonhq.attach.settings.SettingsService;
 public class IOSSettingsService implements SettingsService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Settings");
         initSettings();
     }

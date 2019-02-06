@@ -34,7 +34,6 @@ import java.io.IOException;
 public class IOSBrowserService implements BrowserService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Browser");
     }
 

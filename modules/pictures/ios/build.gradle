@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':pictures')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access pictures features for the iOS platform'

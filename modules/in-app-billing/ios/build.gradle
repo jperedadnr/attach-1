@@ -1,6 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':in-app-billing')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access in-app billing features for the iOS platform'

@@ -32,7 +32,6 @@ import com.gluonhq.attach.device.DeviceService;
 public class IOSDeviceService implements DeviceService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Device");
         initDevice();
     }

@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':statusbar')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access status bar features for the iOS platform'

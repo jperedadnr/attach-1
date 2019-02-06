@@ -38,7 +38,6 @@ import com.gluonhq.attach.runtime.impl.DefaultRuntimeArgsService;
 public class IOSRuntimeArgsService extends DefaultRuntimeArgsService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("RuntimeArgs");
         initRuntimeArgs();
     }

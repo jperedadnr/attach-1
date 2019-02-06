@@ -28,8 +28,8 @@
 package com.gluonhq.attach.pictures.impl;
 
 import com.gluonhq.attach.pictures.PicturesService;
-import com.gluonhq.attach.util.impl.NestedEventLoopInvoker;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.Base64;
 import java.util.Optional;
 import javafx.application.Platform;
@@ -44,7 +44,6 @@ import javafx.scene.image.Image;
 public class IOSPicturesService implements PicturesService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Pictures");
         initPictures();
     }
@@ -57,7 +56,7 @@ public class IOSPicturesService implements PicturesService {
         result = new SimpleObjectProperty<>();
         takePicture(savePhoto);
         try {
-            NestedEventLoopInvoker.enterNestedEventLoop(result);
+            Platform.enterNestedEventLoop(result);
         } catch (Exception e) {
             System.out.println("GalleryActivity: enterNestedEventLoop failed: " + e);
         }
@@ -69,7 +68,7 @@ public class IOSPicturesService implements PicturesService {
         result = new SimpleObjectProperty<>();
         selectPicture();
         try {
-            NestedEventLoopInvoker.enterNestedEventLoop(result);
+            Platform.enterNestedEventLoop(result);
         } catch (Exception e) {
             System.out.println("GalleryActivity: enterNestedEventLoop failed: " + e);
         }
@@ -99,7 +98,7 @@ public class IOSPicturesService implements PicturesService {
         }
         Platform.runLater(() -> {
             try {
-                NestedEventLoopInvoker.exitNestedEventLoop(result, null);
+                Platform.exitNestedEventLoop(result, null);
             } catch (Exception e) {
                 System.out.println("GalleryActivity: exitNestedEventLoop failed: " + e);
             }

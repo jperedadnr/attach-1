@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':ble')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access bluetooth low energy features for the iOS platform'

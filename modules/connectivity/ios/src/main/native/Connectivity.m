@@ -27,9 +27,18 @@
  */
  #import <UIKit/UIKit.h>
 
-#include "Attach.h"
+
 #include<unistd.h>
 #include<netdb.h>
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
 
 JNIEXPORT jint JNICALL
 JNI_OnLoad_Connectivity(JavaVM *vm, void *reserved)

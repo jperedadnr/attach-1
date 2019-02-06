@@ -1,7 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
-    implementation project(':magnetometer/ios')
+    implementation project(':magnetometer')
     implementation project(':compass')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access compass features for the iOS platform'

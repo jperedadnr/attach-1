@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':barcode-scan')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access barcode scan features for the iOS platform'

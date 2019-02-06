@@ -26,7 +26,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #import <UIKit/UIKit.h>
-#include "Attach.h"
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
 
 JNIEXPORT jint JNICALL
 JNI_OnLoad_StatusBar(JavaVM *vm, void *reserved)

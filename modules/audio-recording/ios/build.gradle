@@ -1,6 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':audio-recording')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access audio recording features for the iOS platform'

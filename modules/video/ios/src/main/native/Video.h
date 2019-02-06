@@ -26,9 +26,17 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #import <AVFoundation/AVFoundation.h>
-#include "Attach.h"
 #import <UIKit/UIKit.h>
 #import <AVKit/AVKit.h>
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
 
 typedef NS_ENUM(NSInteger, MediaPlayerStatus) {
     MediaPlayerStatusUnknown,

@@ -28,7 +28,6 @@
 package com.gluonhq.attach.localnotifications.impl;
 
 import com.gluonhq.attach.localnotifications.Notification;
-import com.gluonhq.attach.localnotifications.impl.LocalNotificationsServiceBase;
 
 /**
  *  iOS implementation of LocalNotificationsService.
@@ -36,7 +35,6 @@ import com.gluonhq.attach.localnotifications.impl.LocalNotificationsServiceBase;
 public class IOSLocalNotificationsService extends LocalNotificationsServiceBase {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("LocalNotifications");
         initLocalNotification();
     }

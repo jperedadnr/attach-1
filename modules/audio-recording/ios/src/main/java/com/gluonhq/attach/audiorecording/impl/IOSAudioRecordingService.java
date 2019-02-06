@@ -27,8 +27,7 @@
  */
 package com.gluonhq.attach.audiorecording.impl;
 
-import com.gluonhq.impl.attach.util.Constants;
-import com.gluonhq.impl.attach.audiorecording.DefaultAudioRecordingService;
+import com.gluonhq.attach.util.Constants;
 import java.util.function.Function;
 import javafx.application.Platform;
 
@@ -42,7 +41,7 @@ public class IOSAudioRecordingService extends DefaultAudioRecordingService {
     private static Function<String, Boolean> addChunk;
 
     public IOSAudioRecordingService() {
-        if ("true".equals(System.getProperty(Constants.DOWN_DEBUG))) {
+        if ("true".equals(System.getProperty(Constants.ATTACH_DEBUG))) {
             enableDebug();
         }
     }

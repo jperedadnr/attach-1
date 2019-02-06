@@ -27,8 +27,16 @@
  */
 
 #import <UIKit/UIKit.h>
-#include "Attach.h"
 #import <StoreKit/StoreKit.h>
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
 
 @interface InAppBilling : UIViewController <SKPaymentTransactionObserver, SKProductsRequestDelegate, SKRequestDelegate>
 {

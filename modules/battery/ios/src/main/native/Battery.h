@@ -29,6 +29,14 @@
 #import <UIKit/UIKit.h>
 #include "jni.h"
 
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
+
 @interface Battery : NSObject {}
     - (void) startObserver;
     - (void) stopObserver;

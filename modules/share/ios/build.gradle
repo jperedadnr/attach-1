@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':share')
 }
 

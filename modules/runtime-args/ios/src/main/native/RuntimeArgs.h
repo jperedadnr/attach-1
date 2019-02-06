@@ -28,7 +28,16 @@
 
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
-#include "Attach.h"
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
+
 
 @interface GlassApplication : NSObject <UIApplicationDelegate> { }
 @end

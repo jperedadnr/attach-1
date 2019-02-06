@@ -37,7 +37,6 @@ import java.util.Optional;
 public class IOSStorageService implements StorageService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Storage");
     }
     

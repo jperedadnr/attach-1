@@ -46,7 +46,6 @@ import javafx.scene.media.MediaPlayer.Status;
 public class IOSVideoService extends DefaultVideoService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Video");
         initVideo();
     }

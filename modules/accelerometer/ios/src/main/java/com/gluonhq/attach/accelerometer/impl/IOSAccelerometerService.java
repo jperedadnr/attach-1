@@ -29,12 +29,12 @@ package com.gluonhq.attach.accelerometer.impl;
 
 import com.gluonhq.attach.accelerometer.Acceleration;
 import com.gluonhq.attach.accelerometer.AccelerometerService;
-import com.gluonhq.attach.lifecycle.LifecycleService;
-import com.gluonhq.attach.lifecycle.LifecycleEvent;
-import com.gluonhq.attach.util.Services;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+
+import com.gluonhq.attach.lifecycle.LifecycleEvent;
+import com.gluonhq.attach.lifecycle.LifecycleService;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -42,7 +42,6 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 public class IOSAccelerometerService implements AccelerometerService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Accelerometer");
         initAccelerometer();
     }
@@ -52,7 +51,7 @@ public class IOSAccelerometerService implements AccelerometerService {
     public IOSAccelerometerService() {
         acceleration = new ReadOnlyObjectWrapper<>();
 
-        Services.get(LifecycleService.class).ifPresent(l -> {
+        LifecycleService.create().ifPresent(l -> {
             l.addListener(LifecycleEvent.PAUSE, IOSAccelerometerService::stopObserver);
             l.addListener(LifecycleEvent.RESUME, () -> startObserver(FILTER_GRAVITY, FREQUENCY));
         });

@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':uti:ios')
     implementation project(':augmented-reality')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access Augmented Reality features for the iOS platform'

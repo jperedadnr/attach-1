@@ -27,8 +27,6 @@
  */
 package com.gluonhq.attach.cache.impl;
 
-import com.gluonhq.attach.cache.impl.DefaultCacheService;
-
 public class IOSCacheService extends DefaultCacheService {
 
 }

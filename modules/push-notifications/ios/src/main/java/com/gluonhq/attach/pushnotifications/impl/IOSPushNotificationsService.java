@@ -27,7 +27,6 @@
  */
 package com.gluonhq.attach.pushnotifications.impl;
 
-import com.gluonhq.attach.Services;
 import com.gluonhq.attach.pushnotifications.PushNotificationsService;
 import com.gluonhq.attach.runtime.RuntimeArgsService;
 import com.gluonhq.attach.util.Constants;
@@ -42,7 +41,6 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 public class IOSPushNotificationsService implements PushNotificationsService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("PushNotifications");
     }
 
@@ -52,12 +50,12 @@ public class IOSPushNotificationsService implements PushNotificationsService {
     private static final ReadOnlyStringWrapper TOKEN = new ReadOnlyStringWrapper();
 
     public IOSPushNotificationsService() {
-        if ("true".equals(System.getProperty(Constants.DOWN_DEBUG))) {
+        if ("true".equals(System.getProperty(Constants.ATTACH_DEBUG))) {
             enableDebug();
         }
 
         // Initialize RAS service
-        Services.get(RuntimeArgsService.class);
+        RuntimeArgsService.create();
     }
 
     @Override

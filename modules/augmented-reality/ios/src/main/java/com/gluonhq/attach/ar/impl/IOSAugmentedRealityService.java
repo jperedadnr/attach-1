@@ -47,7 +47,6 @@ public class IOSAugmentedRealityService extends DefaultAugmentedRealityService {
     private static final ReadOnlyBooleanWrapper CANCELLED = new ReadOnlyBooleanWrapper();
     
     static {
-        IOSPlatform.init();
         System.loadLibrary("AugmentedReality");
         CHECK_AR = initAR();
     }

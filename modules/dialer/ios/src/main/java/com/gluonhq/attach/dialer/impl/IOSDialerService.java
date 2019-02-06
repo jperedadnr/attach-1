@@ -32,7 +32,6 @@ import com.gluonhq.attach.dialer.DialerService;
 public class IOSDialerService implements DialerService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Dialer");
     }
 

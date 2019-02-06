@@ -27,8 +27,7 @@
  */
 package com.gluonhq.attach.compass.impl;
 
-import com.gluonhq.attach.util.Services;
-import com.gluonhq.attach.mangnetometer.MagnetometerService;
+import com.gluonhq.attach.magnetometer.MagnetometerService;
 import com.gluonhq.attach.compass.CompassService;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
@@ -40,7 +39,7 @@ public class IOSCompassService implements CompassService {
     public IOSCompassService() {
         heading = new ReadOnlyDoubleWrapper();
 
-        Services.get(MagnetometerService.class).ifPresent(m -> {
+        MagnetometerService.create().ifPresent(m -> {
             m.readingProperty().addListener((obs, ov, nv) -> heading.setValue(nv.getAzimuth()));
         });
     }

@@ -25,71 +25,99 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.attach.orientation.impl;
+package com.gluonhq.attach.display.impl;
 
+import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.lifecycle.LifecycleEvent;
 import com.gluonhq.attach.lifecycle.LifecycleService;
-import com.gluonhq.attach.orientation.OrientationService;
-
-import java.util.Optional;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.geometry.Orientation;
+import javafx.geometry.Dimension2D;
 
-public class IOSOrientationService implements OrientationService {
+public class IOSDisplayService implements DisplayService {
 
     static {
-        System.loadLibrary("Orientation");
-        initOrientation();
+        System.loadLibrary("Display");
+        initDisplay();
     }
 
-    private static ReadOnlyObjectWrapper<Orientation> orientation;
-    private static String orientationText = "Unknown";
+    private static ReadOnlyObjectWrapper<Notch> notch;
 
-    public IOSOrientationService() {
-        orientation = new ReadOnlyObjectWrapper<>();
+    public IOSDisplayService() {
+        notch = new ReadOnlyObjectWrapper<>(Notch.UNKNOWN);
 
         LifecycleService.create().ifPresent(l -> {
-            l.addListener(LifecycleEvent.PAUSE, IOSOrientationService::stopObserver);
-            l.addListener(LifecycleEvent.RESUME, IOSOrientationService::startObserver);
+            l.addListener(LifecycleEvent.PAUSE, IOSDisplayService::stopObserver);
+            l.addListener(LifecycleEvent.RESUME, IOSDisplayService::startObserver);
         });
         startObserver();
     }
 
     @Override
-    public ReadOnlyObjectProperty<Orientation> orientationProperty() {
-        return orientation.getReadOnlyProperty();
+    public boolean isPhone() {
+        return isIphone();
     }
 
     @Override
-    public final Optional<Orientation> getOrientation() {
-        switch (orientationText) {
-            case "Portrait":
-            case "PortraitUpsideDown":
-                return Optional.of(Orientation.VERTICAL);
-            case "LandscapeLeft":
-            case "LandscapeRight":
-                return Optional.of(Orientation.HORIZONTAL);
-            case "Unknown":
-            default:
-                return Optional.empty();
-        }
+    public boolean isTablet() {
+        return !isIphone();
+    }
+
+    @Override
+    public boolean isDesktop() {
+        return false;
+    }
+
+    @Override
+    public Dimension2D getScreenResolution() {
+        double[] dim = screenSize();
+        return new Dimension2D(dim[0], dim[1]);
+    }
+
+    @Override
+    public Dimension2D getDefaultDimensions() {
+        double[] dim = screenBounds();
+        return new Dimension2D(dim[0], dim[1]);
+    }
+
+    @Override
+    public float getScreenScale() {
+        return screenScale();
+    }
+
+    @Override
+    public boolean isScreenRound() {
+        return false;
+    }
+
+    @Override
+    public boolean hasNotch() {
+        return isNotchFound();
+    }
+
+    @Override
+    public ReadOnlyObjectProperty<Notch> notchProperty() {
+        return notch.getReadOnlyProperty();
     }
 
     // native
-    private static native void initOrientation();
+    private static native void initDisplay();
+
+    private native static boolean isIphone();
+    private native static double[] screenSize();
+    private native static double[] screenBounds();
+    private native static float screenScale();
+    private native static boolean isNotchFound();
+
     private static native void startObserver();
     private static native void stopObserver();
 
     // callback
-    private void notifyOrientation(String o) {
-        orientationText = o;
-        getOrientation().ifPresent(or -> {
-            if (orientation.get() == null || !orientation.get().equals(or)) {
-                Platform.runLater(() -> orientation.setValue(or));
-            }
-        });
+    private void notifyDisplay(String o) {
+        Notch d = Notch.valueOf(o);
+        if (! notch.get().equals(d)) {
+            Platform.runLater(() -> notch.setValue(d));
+        }
     }
-
 }

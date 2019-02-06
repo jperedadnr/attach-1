@@ -27,8 +27,16 @@
  */
 
 #import <UIKit/UIKit.h>
-#include "Attach.h"
 #import <CoreLocation/CoreLocation.h>
+#include "jni.h"
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV);                                               \
+};                                                                             \
+} while (0)
 
 @interface Position : UIViewController <CLLocationManagerDelegate> {}
     @property(nonatomic, strong) CLLocationManager *locationManager;

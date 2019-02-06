@@ -34,13 +34,12 @@ import java.io.File;
 public class IOSShareService implements ShareService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Share");
         initShare();
     }
 
     public IOSShareService() {
-        if ("true".equals(System.getProperty(Constants.DOWN_DEBUG))) {
+        if ("true".equals(System.getProperty(Constants.ATTACH_DEBUG))) {
             enableDebug();
         }
     }

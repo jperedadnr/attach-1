@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':video')
+}
+
+javafx {
+    modules = ['javafx.graphics', 'javafx.media']
 }
 
 ext.description = 'API to access video features for the iOS platform'

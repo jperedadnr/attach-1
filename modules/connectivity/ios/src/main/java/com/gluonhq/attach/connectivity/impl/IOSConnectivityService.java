@@ -36,7 +36,6 @@ import javafx.beans.property.ReadOnlyBooleanWrapper;
 public class IOSConnectivityService implements ConnectivityService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Connectivity");
     }
 

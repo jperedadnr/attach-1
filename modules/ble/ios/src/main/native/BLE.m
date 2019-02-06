@@ -26,7 +26,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Ble.h"
+#include "BLE.h"
 
 extern JNIEnv *jEnv;
 #define GET_MAIN_JENV \

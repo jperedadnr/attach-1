@@ -28,7 +28,6 @@
 package com.gluonhq.attach.barcode.impl;
 
 import com.gluonhq.attach.barcode.BarcodeScanService;
-import com.gluonhq.attach.util.impl.NestedEventLoopInvoker;
 import java.util.Optional;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -41,7 +40,6 @@ import javafx.beans.property.StringProperty;
 public class IOSBarcodeScanService implements BarcodeScanService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("BarcodeScan");
         initBarcodeScan();
     }
@@ -58,7 +56,7 @@ public class IOSBarcodeScanService implements BarcodeScanService {
         result = new SimpleStringProperty();
         startBarcodeScan(title != null ? title : "", legend != null ? legend : "", resultText != null ? resultText : "");
         try {
-            NestedEventLoopInvoker.enterNestedEventLoop(result);
+            Platform.enterNestedEventLoop(result);
         } catch (Exception e) {
             System.out.println("ScanActivity: enterNestedEventLoop failed: " + e);
         }
@@ -71,7 +69,7 @@ public class IOSBarcodeScanService implements BarcodeScanService {
         result.set(v);
         Platform.runLater(() -> {
             try {
-                NestedEventLoopInvoker.exitNestedEventLoop(result, null);
+                Platform.exitNestedEventLoop(result, null);
             } catch (Exception e) {
                 System.out.println("ScanActivity: exitNestedEventLoop failed: " + e);
             }

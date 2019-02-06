@@ -33,7 +33,6 @@ import javafx.scene.paint.Color;
 public class IOSStatusBarService implements StatusBarService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("StatusBar");
     }
 

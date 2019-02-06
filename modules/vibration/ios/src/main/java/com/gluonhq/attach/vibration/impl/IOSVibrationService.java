@@ -32,7 +32,6 @@ import com.gluonhq.attach.vibration.VibrationService;
 public class IOSVibrationService implements VibrationService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Vibration");
     }
 

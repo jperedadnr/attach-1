@@ -59,7 +59,6 @@ import javafx.collections.ObservableMap;
 public class IOSInAppBillingService implements InAppBillingService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("InAppBilling");
         initInAppBilling();
     }
@@ -93,7 +92,7 @@ public class IOSInAppBillingService implements InAppBillingService {
 
     @Override
     public void initialize(String androidPublicKey, List<Product> registeredProducts) {
-        if ("true".equals(System.getProperty(Constants.DOWN_DEBUG))) {
+        if ("true".equals(System.getProperty(Constants.ATTACH_DEBUG))) {
             enableDebug();
         }
         this.registeredProducts = registeredProducts;

@@ -25,12 +25,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.attach.battey.impl;
+package com.gluonhq.attach.battery.impl;
 
 import com.gluonhq.attach.battery.BatteryService;
-import com.gluonhq.attach.lifecycle.LifecycleService;
 import com.gluonhq.attach.lifecycle.LifecycleEvent;
-import com.gluonhq.attach.util.Services;
+import com.gluonhq.attach.lifecycle.LifecycleService;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;
@@ -40,7 +39,6 @@ import javafx.beans.property.ReadOnlyFloatWrapper;
 public class IOSBatteryService implements BatteryService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Battery");
         initBattery();
     }
@@ -49,7 +47,7 @@ public class IOSBatteryService implements BatteryService {
     private static final ReadOnlyFloatWrapper BATTERY_LEVEL = new ReadOnlyFloatWrapper();
 
     public IOSBatteryService() {
-        Services.get(LifecycleService.class).ifPresent(l -> {
+        LifecycleService.create().ifPresent(l -> {
             l.addListener(LifecycleEvent.PAUSE, IOSBatteryService::stopObserver);
             l.addListener(LifecycleEvent.RESUME, IOSBatteryService::startObserver);
         });

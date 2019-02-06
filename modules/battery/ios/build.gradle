@@ -1,7 +1,10 @@
 dependencies {
-    implementation project(':util:ios')
-    implementation project(':lifecycle/ios')
     implementation project(':battery')
+    implementation project(':lifecycle')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access battery features for the iOS platform'

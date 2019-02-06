@@ -48,7 +48,6 @@ import javafx.application.Platform;
 public class IOSBleService implements BleService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Ble");
         initBle();
     }

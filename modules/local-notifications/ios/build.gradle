@@ -1,6 +1,9 @@
 dependencies {
-    implementation project(':util:ios')
     implementation project(':local-notifications')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access local notifications features for the iOS platform'

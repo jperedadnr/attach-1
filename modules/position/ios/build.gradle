@@ -1,7 +1,11 @@
 dependencies {
-    implementation project(':util:ios')
+    implementation project(':util')
     implementation project(':position')
-    implementation project(':lifecycle/ios')
+    implementation project(':lifecycle')
+}
+
+javafx {
+    modules 'javafx.graphics'
 }
 
 ext.description = 'API to access position features for the iOS platform'

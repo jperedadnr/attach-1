@@ -38,7 +38,6 @@ import java.util.Map;
 public class IOSLifecycleService implements LifecycleService {
 
     static {
-        IOSPlatform.init();
         System.loadLibrary("Lifecycle");
         initLifecycle();
     }

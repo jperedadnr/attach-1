@@ -56,7 +56,7 @@ jmethodID mat_jLifecycleService_setEvent = 0;
 Lifecycle *_lifecycle;
 
 
-JNIEXPORT void JNICALL Java_com_gluonhq_attach_plugins_lifecycle_impl_IOSLifecycleService_initLifecycle
+JNIEXPORT void JNICALL Java_com_gluonhq_attach_lifecycle_impl_IOSLifecycleService_initLifecycle
 (JNIEnv *env, jclass jClass)
 {
     if (lifecycleInited)

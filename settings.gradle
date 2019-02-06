@@ -10,69 +10,98 @@ pluginManagement {
 
 rootProject.name = 'attach'
 
-include 'accelerometer'
-include 'audio-recording', 'audio-recording:desktop'
-include 'augmented-reality'
-include 'barcode-scan'
-include 'battery'
-include 'ble'
-include 'browser'
-include 'cache', 'cache:desktop'
-include 'compass'
-include 'connectivity'
-include 'device'
-include 'dialer'
-include 'display', 'display:desktop'
-include 'in-app-billing'
-include 'lifecycle', 'lifecycle:desktop'
-include 'local-notifications'
-include 'magnetometer'
-include 'orientation'
-include 'pictures'
-include 'position'
-include 'push-notifications'
-include 'runtime-args', 'runtime-args:desktop'
-include 'settings', 'settings:desktop'
-include 'share'
-include 'statusbar'
-include 'storage', 'storage:desktop'
-include 'vibration'
-include 'video'
+include 'accelerometer', 'accelerometer:ios'
+include 'audio-recording', 'audio-recording:desktop', 'audio-recording:ios'
+include 'augmented-reality', 'augmented-reality:ios'
+include 'barcode-scan', 'barcode-scan:ios'
+include 'battery', 'battery:ios'
+include 'ble', 'ble:ios'
+include 'browser', 'browser:ios'
+include 'cache', 'cache:desktop', 'cache:ios'
+include 'compass', 'compass:ios'
+include 'connectivity', 'connectivity:ios'
+include 'device', 'device:ios'
+include 'dialer', 'dialer:ios'
+include 'display', 'display:desktop',  'display:ios'
+include 'in-app-billing', 'in-app-billing:ios'
+include 'lifecycle', 'lifecycle:desktop', 'lifecycle:ios'
+include 'local-notifications', 'local-notifications:ios'
+include 'magnetometer', 'magnetometer:ios'
+include 'orientation', 'orientation:ios'
+include 'pictures', 'pictures:ios'
+include 'position', 'position:ios'
+include 'push-notifications', 'push-notifications:ios'
+include 'runtime-args', 'runtime-args:desktop', 'runtime-args:ios'
+include 'settings', 'settings:desktop', 'settings:ios'
+include 'share', 'share:ios'
+include 'statusbar', 'statusbar:ios'
+include 'storage', 'storage:desktop', 'storage:ios'
+include 'vibration', 'vibration:ios'
+include 'video', 'video:ios'
 include 'util'
 
 project(':accelerometer').projectDir           = file('modules/accelerometer')
+project(':accelerometer:ios').projectDir       = file('modules/accelerometer/ios')
 project(':audio-recording').projectDir         = file('modules/audio-recording')
 project(':audio-recording:desktop').projectDir = file('modules/audio-recording/desktop')
+project(':audio-recording:ios').projectDir     = file('modules/audio-recording/ios')
 project(':augmented-reality').projectDir       = file('modules/augmented-reality')
+project(':augmented-reality:ios').projectDir   = file('modules/augmented-reality/ios')
 project(':barcode-scan').projectDir            = file('modules/barcode-scan')
+project(':barcode-scan:ios').projectDir        = file('modules/barcode-scan/ios')
 project(':battery').projectDir                 = file('modules/battery')
+project(':battery:ios').projectDir             = file('modules/battery/ios')
 project(':ble').projectDir                     = file('modules/ble')
+project(':ble:ios').projectDir                 = file('modules/ble/ios')
 project(':browser').projectDir                 = file('modules/browser')
+project(':browser:ios').projectDir             = file('modules/browser/ios')
 project(':cache').projectDir                   = file('modules/cache')
 project(':cache:desktop').projectDir           = file('modules/cache/desktop')
+project(':cache:ios').projectDir               = file('modules/cache/ios')
 project(':compass').projectDir                 = file('modules/compass')
+project(':compass:ios').projectDir             = file('modules/compass/ios')
 project(':connectivity').projectDir            = file('modules/connectivity')
+project(':connectivity:ios').projectDir        = file('modules/connectivity/ios')
 project(':device').projectDir                  = file('modules/device')
+project(':device:ios').projectDir              = file('modules/device/ios')
 project(':dialer').projectDir                  = file('modules/dialer')
+project(':dialer:ios').projectDir              = file('modules/dialer/ios')
 project(':display').projectDir                 = file('modules/display')
-project(':display:desktop').projectDir         = file('modules/display/desktop')
+project(':display:desktop').projectDir         = file('modules/display/ios')
+project(':display:ios').projectDir             = file('modules/display/desktop')
 project(':in-app-billing').projectDir          = file('modules/in-app-billing')
+project(':in-app-billing:ios').projectDir      = file('modules/in-app-billing/ios')
 project(':lifecycle').projectDir               = file('modules/lifecycle')
 project(':lifecycle:desktop').projectDir       = file('modules/lifecycle/desktop')
+project(':lifecycle:ios').projectDir           = file('modules/lifecycle/ios')
 project(':local-notifications').projectDir     = file('modules/local-notifications')
+project(':local-notifications:ios').projectDir = file('modules/local-notifications/ios')
 project(':magnetometer').projectDir            = file('modules/magnetometer')
+project(':magnetometer:ios').projectDir        = file('modules/magnetometer/ios')
 project(':orientation').projectDir             = file('modules/orientation')
+project(':orientation:ios').projectDir         = file('modules/orientation/ios')
 project(':pictures').projectDir                = file('modules/pictures')
+project(':pictures:ios').projectDir            = file('modules/pictures/ios')
 project(':position').projectDir                = file('modules/position')
+project(':position:ios').projectDir            = file('modules/position/ios')
 project(':push-notifications').projectDir      = file('modules/push-notifications')
+project(':push-notifications:ios').projectDir  = file('modules/push-notifications/ios')
 project(':runtime-args').projectDir            = file('modules/runtime-args')
 project(':runtime-args:desktop').projectDir    = file('modules/runtime-args/desktop')
+project(':runtime-args:ios').projectDir        = file('modules/runtime-args/ios')
 project(':settings').projectDir                = file('modules/settings')
 project(':settings:desktop').projectDir        = file('modules/settings/desktop')
+project(':settings:ios').projectDir            = file('modules/settings/ios')
 project(':share').projectDir                   = file('modules/share')
+project(':share').projectDir                   = file('modules/share')
+project(':share:ios').projectDir               = file('modules/share/ios')
 project(':statusbar').projectDir               = file('modules/statusbar')
+project(':statusbar:ios').projectDir           = file('modules/statusbar/ios')
 project(':storage').projectDir                 = file('modules/storage')
 project(':storage:desktop').projectDir         = file('modules/storage/desktop')
+project(':storage:ios').projectDir             = file('modules/storage/ios')
 project(':vibration').projectDir               = file('modules/vibration')
+project(':vibration:ios').projectDir           = file('modules/vibration/ios')
 project(':video').projectDir                   = file('modules/video')
+project(':video:ios').projectDir               = file('modules/video/ios')
 project(':util').projectDir                    = file('modules/util')

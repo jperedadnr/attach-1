@@ -31,6 +31,8 @@ subprojects {
         if (project.property('classifier') == 'ios') {
             def service = getServiceName(project.parent.name)
 
+            apply from: rootProject.file('gradle/ios-build.gradle')
+            
             task xcodebuild {
                 doLast {
                     xcodebuildIOS("$project.buildDir","$project.projectDir", "$service")
